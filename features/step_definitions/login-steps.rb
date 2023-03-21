@@ -7,9 +7,13 @@ Dado('acesse a opção email e senha') do
 end
 
 Dado('realize login com {string} e {string}') do |email, senha|
+    #find("#email").set email
+    #find("input[placeholder='Senha']").set senha
+    #find("button", text: "Entrar").click
     find("#email").set email
-    find("input[placeholder='Senha']").set senha
-    find("button", text: "Entrar").click
+      find("#password").set senha 
+      btn = find_all("button", text: "Entrar")
+      btn[0].click
 end
 
 Então('devo estar logado') do
